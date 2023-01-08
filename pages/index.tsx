@@ -4,7 +4,7 @@ import { BlogList } from "../components/blogs";
 import { PortfolioList } from "../components/portfolios";
 import { BaseLayout } from "../components/layouts";
 import { GetStaticProps } from "next";
-import { getBlogFileNames, getBlog } from "../lib/md";
+import { getBlogs } from "../lib/blogs";
 
 const Home = () => {
   return (
@@ -29,12 +29,8 @@ const Home = () => {
 };
 
 export const getStaticProps: GetStaticProps = () => {
-  const blogFileNames = getBlogFileNames();
-
-  blogFileNames.forEach((blogFileName: string) => {
-    const blogContent = getBlog(blogFileName);
-    console.log(blogContent);
-  });
+  const blogs = getBlogs();
+  console.log(blogs);
   return {
     props: {},
   };
