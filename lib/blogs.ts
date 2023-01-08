@@ -9,7 +9,10 @@ const getBlogFileNames = (): string[] => {
 };
 
 const getBlog = (fileName: string): Blog => {
-  return getItemInPath(join(BLOG_DIR, fileName)) as Blog;
+  const blog = getItemInPath(join(BLOG_DIR, fileName)) as Blog;
+
+  blog.slug = fileName.replace(/\.md$/, "");
+  return blog;
 };
 
 const getBlogs = (): Blog[] => {

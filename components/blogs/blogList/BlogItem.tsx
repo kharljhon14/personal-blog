@@ -1,9 +1,13 @@
 import Link from "next/link";
 import Image from "next/legacy/image";
+import { Blog } from "../../interface/Blog";
+import { FunctionComponent } from "react";
 
-// Change prop type
+type Props = {
+  blog: Blog;
+};
 
-export const BlogItem = ({ blog }: any) => {
+export const BlogItem: FunctionComponent<Props> = ({ blog }: any) => {
   return (
     <div className="group">
       <div className="h-80 aspect-w-1 aspect-h-1 w-full rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-40">
